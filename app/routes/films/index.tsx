@@ -10,8 +10,17 @@ export default function FilmsIndex() {
     const films = useLoaderData<Film[]>()
 
     return (
-        <main className="p-4">
-            <h1 className="font-bold text-center lg:text-left text-3xl mb-5">Tous les films <span className="text-indigo-700">Studio Ghibli</span></h1>
+        <main className="flex flex-col items-center p-16">
+            <h1 className="font-bold text-center text-3xl md:text-5xl mb-5">Tous les films <span className="text-indigo-700">Studio Ghibli</span></h1>
+            <div className="mb-5 p-5 border-2 border-gray-300 rounded">
+                <form>
+                    <div className="relative">
+                        {/*TODO Change label position*/}
+                        <input type="text" name="search" id="search" className="peer h-10 p-3 placeholder-transparent border-2 border-gray-300 rounded focus:outline-none focus:border-indigo-700 transition-colors" placeholder="Howling Castle"/>
+                        <label htmlFor="search" className="absolute left-0 -top-3.5 text-gray-600 text-sm transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-placeholder-shown:top-2 peer-focus:-top-1 peer-focus:text-gray-600 peer-focus:text-sm">Rechercher</label>
+                    </div>
+                </form>
+            </div>
             <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 justify-items-center gap-4">
                 {films.map((film) => (
                     <Link to={`/films/${film.id}`} key={film.id}>
