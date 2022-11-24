@@ -1,4 +1,4 @@
-import type { MetaFunction } from "@remix-run/node";
+import type {LinksFunction, MetaFunction} from "@remix-run/node";
 import {
   Links,
   LiveReload,
@@ -7,21 +7,44 @@ import {
   Scripts,
   ScrollRestoration,
 } from "@remix-run/react";
+import styles from "./tailwind.css"
+
+export const links: LinksFunction = () => {
+  return [
+      {
+          rel: 'stylesheet',
+          href: styles
+      },
+      {
+          rel: 'preconnect',
+          href: 'https://fonts.googleapis.com'
+      },
+      {
+          rel: 'preconnect',
+          href: 'https://fonts.gstatic.com',
+          crossOrigin: 'anonymous'
+      },
+      {
+          rel: 'stylesheet',
+          href: 'https://fonts.googleapis.com/css2?family=Readex+Pro:wght@300;400;500;600;700&display=swap'
+      }
+  ]
+}
 
 export const meta: MetaFunction = () => ({
-  charset: "utf-8",
-  title: "New Remix App",
-  viewport: "width=device-width,initial-scale=1",
+  title: "Studio Ghibli",
 });
 
 export default function App() {
   return (
-    <html lang="en">
+    <html lang="fr">
       <head>
+        <meta charSet="utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
         <Meta />
         <Links />
       </head>
-      <body>
+      <body className="font-readex">
         <Outlet />
         <ScrollRestoration />
         <Scripts />
