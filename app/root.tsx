@@ -27,6 +27,10 @@ export const links: LinksFunction = () => {
       {
           rel: 'stylesheet',
           href: 'https://fonts.googleapis.com/css2?family=Readex+Pro:wght@300;400;500;600;700&display=swap'
+      },
+      {
+          rel: 'stylesheet',
+          href: 'https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css'
       }
   ]
 }
